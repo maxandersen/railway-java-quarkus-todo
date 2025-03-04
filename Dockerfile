@@ -12,4 +12,4 @@ COPY . ./
 RUN ./mvnw -DoutputFile=target/mvn-dependency-list.log -B -DskipTests clean dependency:list install
 
 # Run the quarkus app 
-CMD ["sh", "-c", "java -Dquarkus.datasource.username=${PGUSER} -Dquarkus.datasource.password=${PGPASSWORD} -Dquarkus.datasource.jdbc.url="jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}" -jar target/quarkus-app/quarkus-run.jar"]
+CMD ["sh", "-c", "java -Dquarkus.datasource.username=${PGUSER} -Dquarkus.datasource.password=${PGPASSWORD} -Dquarkus.datasource.jdbc.url='jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}' -jar target/quarkus-app/quarkus-run.jar"]
